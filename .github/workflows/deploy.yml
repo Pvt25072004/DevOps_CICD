@@ -36,8 +36,7 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/sell-project:latest .
-          docker push ${{ secrets.DOCKER_USERNAME }}/sell-project:latest
+          docker buildx build --push -t ${{ secrets.DOCKER_USERNAME }}/sell-project:latest .
 
       - name: Deploy to production server
         uses: appleboy/ssh-action@v1.0.3
