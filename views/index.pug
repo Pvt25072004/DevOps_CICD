@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  div.title-lop
+    h1 QUẢN LÝ LỚP HỌC
+  
+  div.content_lop
+    h2 Hiển Thị Lớp
+    div.list_lops
+      each lop in lops
+        ul
+          li
+            span ID: &nbsp
+            = lop._id
+          li
+            span Tên lớp: &nbsp
+            = lop.tenlop
+           
+          li
+            span Chuyên ngành: &nbsp
+            = lop.chuyennganh
+          li
+            span GVCN: &nbsp
+            = lop.gvcn
+          li
+            if lop.image
+              img(src=lop.image alt="Ảnh đại diện" width="100")
+            else
+              span Không có ảnh
+          form(action="/delete" method="POST")
+            input(type="hidden" name="id" value=lop._id)
+            button(type="submit") Xóa Lớp
+          button 
+            a(href=`/update/${lop._id}`) Cập Nhật Lớp
+      nav
+      button 
+        a(href="/create") Tạo Lớp
+

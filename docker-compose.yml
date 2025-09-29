@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  sell-project:
+    build: .
+    image: ${DOCKER_USERNAME}/sell-project:latest
+    container_name: sell-project
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    restart: always

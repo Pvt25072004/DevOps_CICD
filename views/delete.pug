@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  div.content_lop
+    h2 Xóa Lớp
+    form(action="/delete" method="POST")
+      div
+        label(for="id") ID
+        input(type="text" name="id" required="required")
+      button(type="submit") Xóa

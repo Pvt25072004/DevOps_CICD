@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1 Cập Nhật Thông Tin Lớp
+
+  form(action="/update" method="POST")
+    input(type="hidden" name="id" value=lop._id)
+    div
+      label(for="tenlop") Tên lớp:
+      input(type="text" name="tenlop" value=lop.tenlop required="required")
+    div
+      label(for="chuyennganh") Chuyên ngành:
+      input(type="text" name="chuyennganh" value=lop.chuyennganh required="required")
+    div
+      label(for="gvcn") Giáo viên chủ nhiệm:
+      input(type="text" name="gvcn" value=lop.gvcn required="required")
+    div
+      label(for="image") Ảnh đại diện (URL)
+      input(type="text" name="image" value=lop.image) 
+    button(type="submit") Cập Nhật
