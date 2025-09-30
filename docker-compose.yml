@@ -10,14 +10,3 @@ services:
     environment:
       - NODE_ENV=production
     restart: always
-    mongo:
-      image: mongo:7
-      container_name: mongo
-      ports:
-        - "27017:27017"
-    app:
-      build: .
-      environment:
-        MONGO_URI: mongodb://165.22.157.32:27017/crud_products
-      depends_on:
-        - mongo
